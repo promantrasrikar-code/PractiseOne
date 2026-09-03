@@ -1,0 +1,832 @@
+1. Check whether Git is installed
+
+Open PowerShell:
+
+git --version
+
+Example output:
+
+git version 2.51.0.windows.1
+
+If you get git is not recognized, install Git first:
+
+Git for Windows
+
+2. Go to your project folder
+cd D:\GitPractise
+
+Check the files:
+
+dir
+
+You should see your project files, for example:
+
+GitCommands.txt
+3. Initialize Git
+git init
+What this does
+
+Creates a hidden .git folder inside D:\GitPractise.
+
+Your folder becomes a Git repository:
+
+D:\GitPractise
+│
+├── .git
+└── GitCommands.txt
+4. Check Git status
+git status
+
+Initially, you may see:
+
+On branch master
+
+No commits yet
+
+Untracked files:
+    GitCommands.txt
+
+Untracked means Git sees the file but isn't tracking it yet.
+
+5. Configure your Git name
+
+Do this once on your computer:
+
+git config --global user.name "Srikar"
+
+Check it:
+
+git config --global user.name
+
+Output:
+
+Srikar
+6. Configure your GitHub email
+
+Use the email associated with your GitHub account:
+
+git config --global user.email "YOUR_GITHUB_EMAIL"
+
+For example:
+
+git config --global user.email "yourname@gmail.com"
+
+Check:
+
+git config --global user.email
+7. Add files to Git
+
+To add all files in the current folder:
+
+git add .
+
+Or to add only one file:
+
+git add GitCommands.txt
+What git add does
+
+It moves files into the staging area, preparing them for a commit.
+
+8. Check the status again
+git status
+
+Now you should see something like:
+
+Changes to be committed:
+
+    new file: GitCommands.txt
+9. Create your first commit
+git commit -m "Initial commit"
+
+Example:
+
+[master (root-commit) 3da21aa] Initial commit
+ 1 file changed
+ create mode 100644 GitCommands.txt
+
+You already successfully completed this step. ✅
+
+What is a commit?
+
+A commit is a saved version/snapshot of your code.
+
+10. Rename master to main
+git branch -M main
+
+Check your branch:
+
+git branch
+
+You should see:
+
+* main
+11. Connect your local repository to GitHub
+
+Your GitHub repository is:
+
+PractiseOne GitHub Repository
+
+Run:
+
+git remote add origin https://github.com/promantrasrikar-code/PractiseOne.git
+What is origin?
+
+origin is simply the standard name Git gives to your remote GitHub repository.
+
+You can think of it as:
+
+Local PC
+   │
+   │ origin
+   ▼
+GitHub
+12. Verify the GitHub connection
+git remote -v
+
+You should see:
+
+origin  https://github.com/promantrasrikar-code/PractiseOne.git (fetch)
+origin  https://github.com/promantrasrikar-code/PractiseOne.git (push)
+
+This confirms your local repository knows where your GitHub repository is.
+
+13. Push your code to GitHub
+
+Now run:
+
+git push -u origin main
+What this means
+git       → use Git
+push      → upload commits
+-u        → remember this remote/branch relationship
+origin    → your GitHub repository
+main      → the branch to upload
+
+After this, your local code goes to GitHub.
+
+14. Verify on GitHub
+
+Open:
+
+PractiseOne Repository
+
+You should see:
+
+PractiseOne
+
+GitCommands.txt
+
+🎉 Your local folder is now connected to GitHub.
+
+15. What you do every day afterward
+
+You do not need to run git init again.
+
+Suppose you modify:
+
+GitCommands.txt
+
+First check what changed:
+
+git status
+
+Then add the changes:
+
+git add .
+
+Create a commit:
+
+git commit -m "Updated Git commands"
+
+Push to GitHub:
+
+git push
+
+That's it.
+
+Complete command list
+
+For a new project, the complete process is:
+
+# 1. Go to project
+cd D:\GitPractise
+
+# 2. Initialize Git
+git init
+
+# 3. Configure your name
+git config --global user.name "Srikar"
+
+# 4. Configure your GitHub email
+git config --global user.email "YOUR_GITHUB_EMAIL"
+
+# 5. Check status
+git status
+
+# 6. Add files
+git add .
+
+# 7. Commit
+git commit -m "Initial commit"
+
+# 8. Rename branch to main
+git branch -M main
+
+# 9. Connect to GitHub
+git remote add origin https://github.com/promantrasrikar-code/PractiseOne.git
+
+# 10. Verify remote
+git remote -v
+
+# 11. Push to GitHub
+git push -u origin main
+After the first push
+
+Every time you make changes:
+
+git status
+git add .
+git commit -m "Your change description"
+git push
+The Git workflow to remember
+                LOCAL COMPUTER
+
+       Your Project Files
+              │
+              ▼
+         git add .
+              │
+              ▼
+          Staging Area
+              │
+              ▼
+       git commit -m "..."
+              │
+              ▼
+        Local Repository
+              │
+              │ git push
+              ▼
+       ┌───────────────┐
+       │    GitHub     │
+       │  PractiseOne  │
+       └───────────────┘
+
+The 4 commands you'll use most often are:
+
+git status
+git add .
+git commit -m "message"
+git push
+
+And when you want to bring changes from GitHub to your computer, you'll use:
+
+git pull
+
+So the basic cycle is:
+
+pull → edit → add → commit → push.
+
+*************************************************************************
+Here is a practical Git + GitHub command cheat sheet, from beginner to advanced.
+
+1. Basic Git commands
+Command	Purpose
+git --version	Check Git version
+git init	Create a Git repository
+git status	See changed/untracked files
+git add .	Stage all changes
+git add file.txt	Stage one file
+git commit -m "message"	Save changes
+git log	View commit history
+git log --oneline	Compact commit history
+git diff	See unstaged changes
+git diff --staged	See staged changes
+2. GitHub remote commands
+
+These are very important.
+
+See connected GitHub repository
+git remote -v
+Add GitHub repository
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
+Change GitHub repository URL
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+Remove GitHub connection
+git remote remove origin
+Push
+git push
+First push
+git push -u origin main
+Download changes from GitHub
+git pull
+3. Branches — VERY important
+
+Branches are one of the most important Git concepts for a development team.
+
+See branches
+git branch
+Create branch
+git branch development
+Create and switch to branch
+git switch -c development
+
+Older equivalent:
+
+git checkout -b development
+Switch branch
+git switch development
+Switch back to main
+git switch main
+Delete local branch
+git branch -d development
+Push branch to GitHub
+git push -u origin development
+4. Typical team workflow
+
+For example:
+
+main
+ │
+ ├── development
+ │
+ ├── feature/login
+ │
+ ├── feature/payment
+ │
+ └── bugfix/database
+
+Developer creates a feature:
+
+git switch main
+git pull
+
+git switch -c feature/login
+
+Work on the code.
+
+Then:
+
+git status
+git add .
+git commit -m "Added login functionality"
+git push -u origin feature/login
+
+Then create a Pull Request on GitHub.
+
+After review:
+
+feature/login
+      ↓
+Pull Request
+      ↓
+Code Review
+      ↓
+Merge
+      ↓
+main
+
+This is the workflow you will commonly encounter in DevOps teams.
+
+5. Clone an existing GitHub repository
+
+If you want to download a repository from GitHub:
+
+git clone https://github.com/USERNAME/REPOSITORY.git
+
+Example:
+
+git clone https://github.com/promantrasrikar-code/PractiseOne.git
+
+Then:
+
+cd PractiseOne
+
+Check:
+
+git status
+
+You don't need git init after cloning.
+
+6. Pull vs Fetch
+git pull
+
+Downloads and integrates changes:
+
+git pull
+git fetch
+
+Downloads information but doesn't change your working files:
+
+git fetch
+
+Then inspect:
+
+git log origin/main
+
+For beginners, remember:
+
+git pull   = fetch + merge/rebase
+git fetch  = download information only
+7. Merge branches
+
+Suppose you're on main:
+
+git switch main
+
+Get latest changes:
+
+git pull
+
+Merge development:
+
+git merge development
+
+Then:
+
+git push
+8. .gitignore — VERY important
+
+Never blindly upload everything.
+
+Create:
+
+.gitignore
+
+For a .NET project, for example:
+
+bin/
+obj/
+.vs/
+*.user
+*.suo
+packages/
+appsettings.Development.json
+
+You should also make sure you don't commit:
+
+passwords
+API keys
+connection strings
+SAS tokens
+private certificates
+.env files
+Check ignored files
+git status
+9. Undo changes
+Undo changes to a file that hasn't been committed
+git restore GitCommands.txt
+
+⚠️ This removes your uncommitted changes to that file.
+
+Unstage a file
+git restore --staged GitCommands.txt
+See previous commits
+git log --oneline
+10. Undo a commit safely
+
+If you already committed and want to create a new commit that reverses it:
+
+git revert COMMIT_ID
+
+Example:
+
+git revert 3da21aa
+
+Then:
+
+git push
+
+For shared/team repositories, git revert is generally safer than rewriting history.
+
+11. Reset
+
+You will eventually need to understand:
+
+git reset
+
+Three common modes:
+
+git reset --soft HEAD~1
+git reset --mixed HEAD~1
+git reset --hard HEAD~1
+
+⚠️ Be careful with:
+
+git reset --hard
+
+It can permanently remove uncommitted work.
+
+12. Git stash
+
+Very useful when you have unfinished work.
+
+Suppose you're working on something but need to switch branches.
+
+git stash
+
+Your changes are temporarily stored.
+
+Switch branch:
+
+git switch main
+
+Do your work.
+
+Come back:
+
+git switch feature/login
+
+Restore your changes:
+
+git stash pop
+
+See stashes:
+
+git stash list
+13. Git tags
+
+Tags are commonly used for software releases.
+
+Example:
+
+git tag v1.0.0
+
+Push tag:
+
+git push origin v1.0.0
+
+Push all tags:
+
+git push --tags
+
+Example:
+
+v1.0.0
+v1.1.0
+v2.0.0
+14. Find commit history
+git log
+
+Better:
+
+git log --oneline --graph --all
+
+Example:
+
+* 7a82d31 Added payment
+* 4c91ab2 Fixed login
+* 3da21aa Initial commit
+
+Show a particular commit:
+
+git show 3da21aa
+15. Check who changed a line
+
+Very useful for team projects:
+
+git blame GitCommands.txt
+
+It shows which commit/user changed each line.
+
+16. Compare branches
+git diff main development
+
+This tells you what differs between main and development.
+
+17. GitHub Pull Requests
+
+For team development, understand this workflow:
+
+Developer
+   │
+   ▼
+Create feature branch
+   │
+   ▼
+Write code
+   │
+   ▼
+Commit
+   │
+   ▼
+Push branch
+   │
+   ▼
+GitHub Pull Request
+   │
+   ▼
+Code Review
+   │
+   ▼
+Approval
+   │
+   ▼
+Merge into main
+
+Example:
+
+git switch -c feature/customer
+
+Work...
+
+git add .
+git commit -m "Added customer functionality"
+git push -u origin feature/customer
+
+Then create the Pull Request in GitHub.
+
+18. GitHub Issues
+
+Learn these GitHub concepts too:
+
+Issues
+Labels
+Milestones
+Projects
+Pull Requests
+Code Reviews
+Discussions
+Releases
+
+For example:
+
+Issue #25
+"Fix customer login"
+
+       ↓
+
+Developer creates
+
+feature/customer-login
+
+       ↓
+
+Pull Request
+
+       ↓
+
+Review
+
+       ↓
+
+Merge
+19. GitHub Actions — VERY important for DevOps
+
+Since you're learning Azure DevOps/DevOps, you should learn GitHub Actions too.
+
+Example workflow:
+
+Developer
+   ↓
+git push
+   ↓
+GitHub
+   ↓
+GitHub Actions
+   ↓
+Build
+   ↓
+Test
+   ↓
+Deploy
+
+Workflow files are stored here:
+
+.github/workflows/
+
+Example:
+
+.github
+└── workflows
+    └── build.yml
+
+A basic workflow might:
+
+Checkout code
+     ↓
+Install dependencies
+     ↓
+Build
+     ↓
+Run tests
+     ↓
+Publish artifact
+     ↓
+Deploy
+
+This is directly relevant to your Azure DevOps/CI-CD learning path.
+
+20. GitHub Secrets
+
+Never put this directly in code:
+
+password=MyPassword123
+
+or:
+
+AZURE_CLIENT_SECRET=xxxxxxxx
+
+Instead, use:
+
+GitHub → Repository → Settings → Secrets and variables → Actions
+
+Then your GitHub Actions workflow can use the secret.
+
+21. Git LFS
+
+If you have very large files, learn Git LFS.
+
+For example:
+
+large ZIP
+database backup
+large binary
+video
+
+Install/configure:
+
+git lfs install
+
+Track a file type:
+
+git lfs track "*.zip"
+
+Then:
+
+git add .
+git commit -m "Added large files"
+git push
+
+For normal source code, you generally don't need LFS.
+
+22. GitHub authentication
+
+You should understand:
+
+HTTPS
+https://github.com/USERNAME/REPOSITORY.git
+SSH
+git@github.com:USERNAME/REPOSITORY.git
+
+For professional development, SSH authentication is worth learning.
+
+You can eventually set up:
+
+ssh-keygen -t ed25519 -C "YOUR_GITHUB_EMAIL"
+
+Then add your public key to GitHub.
+
+23. The commands I recommend you learn first
+
+Don't try to memorize everything at once.
+
+Level 1 — Must know
+git --version
+git init
+git status
+git add .
+git commit -m "message"
+git push
+git pull
+git clone
+git log
+Level 2 — Team development
+git branch
+git switch
+git switch -c feature/name
+git merge
+git fetch
+git stash
+git diff
+Level 3 — Professional Git
+git rebase
+git cherry-pick
+git revert
+git reset
+git tag
+git blame
+git reflog
+Level 4 — GitHub/DevOps
+
+Learn:
+
+GitHub Repository
+       ↓
+Branches
+       ↓
+Pull Requests
+       ↓
+Code Review
+       ↓
+GitHub Actions
+       ↓
+Secrets
+       ↓
+CI/CD
+       ↓
+Docker
+       ↓
+Azure
+
+For your goal of moving toward Azure/DevOps, I would focus especially on branches → Pull Requests → merge/rebase → GitHub Actions → secrets → CI/CD rather than trying to memorize every Git command.
