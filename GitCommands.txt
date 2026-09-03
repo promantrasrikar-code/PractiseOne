@@ -281,6 +281,7 @@ git push
 
 And when you want to bring changes from GitHub to your computer, you'll use:
 
+test
 git pull
 
 So the basic cycle is:
