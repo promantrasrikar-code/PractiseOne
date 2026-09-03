@@ -1,3 +1,4 @@
+Test
 1. Check whether Git is installed
 
 Open PowerShell:
